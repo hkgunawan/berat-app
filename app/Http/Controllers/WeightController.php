@@ -14,9 +14,11 @@ class WeightController extends Controller
      */
     public function index()
     {
-        $weights = Weight::all();
-        //dd($weights);
-        return view('weights.index', compact('weights'));
+        $weights = Weight::orderby('tanggal', 'desc')->get();
+        $avgmin = $weights->avg('min');
+        $avgmax = $weights->avg('max');
+        $avgdifference = $weights->avg('difference');
+        return view('weights.index', compact('weights', 'avgmin', 'avgmax', 'avgdifference'));
     }
 
     /**

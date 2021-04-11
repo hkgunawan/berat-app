@@ -26,7 +26,7 @@
                             <td>{{ $weight->max }}</td>
                             <td>{{ $weight->min }}</td>
                             <td>{{ $weight->difference }}</td>
-                            <td class="text-center">
+                            <td class="text-left">
                                 <a href="{{ route('weights.show', $weight->id) }}" class="btn btn-info btn-sm">Show</a>
                                 <a href="{{ route('weights.edit', $weight->id) }}" class="btn btn-success btn-sm">Edit</a>
                                 <form action="{{ route('weights.destroy', $weight->id) }}" method="post"
@@ -38,6 +38,13 @@
                             </td>
                         </tr>
                     @endforeach
+                    <tr class="table-dark">
+                        <td>Rata-rata</td>
+                        <td>{{ $avgmax }}</td>
+                        <td>{{ $avgmin }}</td>
+                        <td>{{ $avgdifference }}</td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

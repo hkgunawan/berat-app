@@ -1,38 +1,31 @@
 @extends('layout')
 
 @section('content')
-
-    <div class="card mt-5">
-        <div class="card-header">
-            Create User
+    <div class="mt-5">
+        <a href="{{ route('weights.index') }}" class="btn btn-light">Back</a>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="table-primary">
+                        <td>Tanggal</td>
+                        <td>{{ $weight->tanggal }}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Max</td>
+                        <td>{{ $weight->max }}</td>
+                    </tr>
+                    <tr>
+                        <td>Min</td>
+                        <td>{{ $weight->min }}</td>
+                    </tr>
+                    <tr>
+                        <td>Perbedaan</td>
+                        <td>{{ $weight->difference }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div class="card-body">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <form method="post" action="{{ route('weights.store') }}">
-                <div class="form-group">
-                    @csrf
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" />
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" />
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" class="form-control" name="phone" />
-                </div>
-                <button type="submit" class="btn btn-block btn-primary">Add</button>
-            </form>
-        </div>
-    </div>
-@endsection
+        <div>
+        @endsection
