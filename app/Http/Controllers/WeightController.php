@@ -15,6 +15,7 @@ class WeightController extends Controller
     public function index()
     {
         $weights = Weight::all();
+        //dd($weights);
         return view('weights.index', compact('weights'));
     }
 
@@ -38,7 +39,7 @@ class WeightController extends Controller
     {
         $storeData = $request->validate([
             'min' => 'required|min:1',
-            'max' => 'required|min:2',
+            'max' => 'required|min:2|gte:min',
             'tanggal' => 'required|date',
         ]);
         $weight = Weight::UpdateorCreate(['tanggal' => $storeData['tanggal']], $storeData);
