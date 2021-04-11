@@ -4,7 +4,7 @@
 
     <div class="card mt-5">
         <div class="card-header">
-            Create User
+            Berat Baru
         </div>
 
         <div class="card-body">
@@ -17,22 +17,28 @@
                     </ul>
                 </div>
             @endif
-            <form method="post" action="{{ route('employees.store') }}">
+            <form method="post" action="{{ route('weights.store') }}">
                 <div class="form-group">
                     @csrf
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" />
+                    <label for="tanggal">Tanggal</label>
+                    <input class="date form-control" type="text" name="tanggal">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" />
+                    <label for="max">Max</label>
+                    <input type="max" class="form-control" name="max" />
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" class="form-control" name="phone" />
+                    <label for="min">Min</label>
+                    <input type="min" class="form-control" name="min" />
                 </div>
                 <button type="submit" class="btn btn-block btn-primary">Add</button>
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $('.date').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+
+    </script>
 @endsection

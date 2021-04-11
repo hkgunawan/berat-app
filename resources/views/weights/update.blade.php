@@ -18,20 +18,19 @@
                     </ul>
                 </div>
             @endif
-            <form method="post" action="{{ route('employees.update', $employee->id) }}">
+            <form method="post" action="{{ route('weights.store', $weight->id) }}">
                 <div class="form-group">
                     @csrf
-                    @method('PATCH')
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" value="{{ $employee->name }}" />
+                    <label for="tanggal">Tanggal</label>
+                    <input class="date form-control" type="text" name="tanggal" value="{{ $weight->tanggal }}">
+                </div>
+                <div class=" form-group">
+                    <label for="max">Max</label>
+                    <input type="max" class="form-control" name="max" value="{{ $weight->max }}" />
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" value="{{ $employee->email }}" />
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" class="form-control" name="phone" value="{{ $employee->phone }}" />
+                    <label for="min">Min</label>
+                    <input type="min" class="form-control" name="min" value="{{ $weight->min }}" />
                 </div>
 
                 <button type="submit" class="btn btn-block btn-danger">Update</button>

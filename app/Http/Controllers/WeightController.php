@@ -41,10 +41,9 @@ class WeightController extends Controller
             'max' => 'required|min:2',
             'tanggal' => 'required|date',
         ]);
-        dd($storeData);
-        $weight = Weight::UpdateorCreate($storeData);
+        $weight = Weight::UpdateorCreate(['tanggal' => $storeData['tanggal']], $storeData);
 
-        return redirect('/weights')->with('completed', 'data tersimpan');
+        return redirect('/weights')->with('completed', 'Berat tersimpan');
     }
 
     /**

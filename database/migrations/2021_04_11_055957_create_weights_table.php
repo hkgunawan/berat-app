@@ -17,7 +17,7 @@ class CreateWeightsTable extends Migration
             $table->id();
             $table->integer('max');
             $table->integer('min');
-            $table->dateTime('tanggal');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }
